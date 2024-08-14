@@ -1,66 +1,98 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Vehicle Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descripción del Proyecto
+¡Hola! Este proyecto es una aplicación web para gestionar la información de vehículos. Puedes consultar los detalles de un vehículo usando su placa patente o VIN, así como agregar nuevos vehículos al sistema. La aplicación está construida con Laravel para el backend, Vue.js para el frontend y MySQL para la base de datos.
 
-## About Laravel
+## Tecnologías Utilizadas
+- **Frontend**: Vue.js
+- **Backend**: Laravel
+- **Base de Datos**: MySQL
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instalación y Configuración
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Backend (Laravel)
+Para poner en marcha el backend, sigue estos pasos:
+1. **Clona el Repositorio**: `git clone https://github.com/tu-usuario/vehicle-management-system.git`
+2. **Configura el Entorno**:
+   - Copia el archivo `.env.example` a `.env`: `cp .env.example .env`
+   - Edita el archivo `.env` para configurar la conexión a la base de datos:
+     ```plaintext
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=laravel
+     DB_USERNAME=root
+     DB_PASSWORD=
+     ```
+3. **Instala Dependencias**: `composer install`
+4. **Ejecuta Migraciones**: `php artisan migrate`
+5. **Inicia el Servidor**: `php artisan serve`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Frontend (Vue.js)
+Para el frontend, sigue estos pasos:
+1. **Instala Dependencias**: `npm install`
+2. **Compila y Carga en Desarrollo**: `npm run serve`
+3. **Compila y Minifica para Producción**: `npm run build`
+4. **Linter y Corrección de Archivos**: `npm run lint`
+5. **Para autilizar el proyecto en el navegador: localhost:8080**
+## Uso
 
-## Learning Laravel
+### Endpoints de la API
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### GET /vehicle/search
+- **Descripción**: Consulta la información del vehículo por placa patente o VIN.
+- **Parámetros**:
+  - `query` (string): La placa patente o VIN a buscar.
+- **Respuesta Ejemplo**:
+  - **Estado 200 OK**:
+    ```json
+    {
+      "id": 1,
+      "vin": "1HGBH41JXMN109186",
+      "engine_number": "123456789",
+      "displacement": 1500,
+      "year": 2020,
+      "brand": "Toyota",
+      "model": "Corolla",
+      "version": "LE",
+      "plates": ["ABC123", "XYZ456"],
+      "current_owner": "John Doe"
+    }
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### POST /vehicle
+- **Descripción**: Agrega un nuevo vehículo al sistema.
+- **Cuerpo de Solicitud**:
+  ```json
+  {
+    "vin": "3HGBH41JXMN209188",
+    "engine_number": "3456789012",
+    "displacement": 2000,
+    "year": 2022,
+    "brand": "Ford",
+    "model": "Focus",
+    "version": "ST",
+    "plates": ["LMN456"],
+    "current_owner": "Alice Johnson"
+  }
+#### POST /vehicle
+- **Respuesta Ejemplo**:
+  - **Estado 201 OK**:
+    ```json
+    {
+    "vin": "3HGBH41JXMN209188",
+    "engine_number": "3456789012",
+    "displacement": 2000,
+    "year": 2022,
+    "brand": "Ford",
+    "model": "Focus",
+    "version": "ST",
+    "plates": ["LMN456"],
+    "current_owner": "Alice Johnson",
+    "updated_at": "2024-08-13T17:20:02.000000Z",
+    "created_at": "2024-08-13T17:20:02.000000Z",
+    "id": 14
+    }
+    ```
+#### LISTADO DE VEHICULOS
+- **Para registrar dos vehiculos de prueba se generan con este comando=php artisan db:seed**
