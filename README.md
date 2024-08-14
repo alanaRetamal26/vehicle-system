@@ -48,16 +48,18 @@ Para el frontend, sigue estos pasos:
   - **Estado 200 OK**:
     ```json
     {
-      "id": 1,
-      "vin": "1HGBH41JXMN109186",
-      "engine_number": "123456789",
-      "displacement": 1500,
-      "year": 2020,
-      "brand": "Toyota",
-      "model": "Corolla",
-      "version": "LE",
-      "plates": ["ABC123", "XYZ456"],
-      "current_owner": "John Doe"
+    "vin": "1HGBH41JXMN109186",
+    "engine_number": "123456789",
+    "displacement": 1500,
+    "year": 2020,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "version": "LE",
+    "plates": "ABC123",
+    "current_owner": "John Doe",
+    "updated_at": "2024-08-13 21:49:49",
+    "created_at": "2024-08-13 21:49:49",
+    "id": 1
     }
     ```
 
