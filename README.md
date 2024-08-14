@@ -35,6 +35,7 @@ Para el frontend, sigue estos pasos:
 3. **Compila y Minifica para Producción**: `npm run build`
 4. **Linter y Corrección de Archivos**: `npm run lint`
 5. **Para autilizar el proyecto en el navegador: localhost:8080**
+
 ## Uso
 
 ### Endpoints de la API
@@ -72,27 +73,48 @@ Para el frontend, sigue estos pasos:
     "brand": "Ford",
     "model": "Focus",
     "version": "ST",
-    "plates": ["LMN456"],
+    "plates": "LMN45678",
     "current_owner": "Alice Johnson",
-    "id": 19
+    "updated_at": "2024-08-14 12:03:08",
+    "created_at": "2024-08-14 12:03:08",
+    "id": 3
   }
 #### POST /vehicle
 - **Respuesta Ejemplo**:
   - **Estado 201 OK**:
     ```json
     {
-    "vin": "3HGBH41JXMN209188",
-    "engine_number": "3456789012",
+    "vin": "2HGBH41JXMN209187",
+    "engine_number": "987654321",
     "displacement": 2000,
-    "year": 2022,
+    "year": 2021,
     "brand": "Ford",
     "model": "Focus",
     "version": "ST",
-    "plates": ["LMN456"],
-    "current_owner": "Alice Johnson",
-    "updated_at": "2024-08-13T17:20:02.000000Z",
-    "created_at": "2024-08-13T17:20:02.000000Z",
-    "id": 14
+    "plates": "LMN456",
+    "current_owner": "Jane Smith",
+    "updated_at": "2024-08-13 21:49:49",
+    "created_at": "2024-08-13 21:49:49",
+    "id": 2
+    }
+      ```
+    #### POST /vehicle
+- **Respuesta Ejemplo**:
+  - **Estado 201 OK**:
+    ```json
+    {
+    "vin": "1HGBH41JXMN109186",
+    "engine_number": "123456789",
+    "displacement": 1500,
+    "year": 2020,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "version": "LE",
+    "plates": "ABC123",
+    "current_owner": "John Doe",
+    "updated_at": "2024-08-13 21:49:49",
+    "created_at": "2024-08-13 21:49:49",
+    "id": 1
     }
     ```
 #### LISTADO DE VEHICULOS
