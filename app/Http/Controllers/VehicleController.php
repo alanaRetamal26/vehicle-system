@@ -25,7 +25,10 @@ class VehicleController extends Controller
         // Valido que el parámetro 'query' sea obligatorio y sea una cadena
         $request->validate([
             'query' => 'required|string',
+        ], [
+            'query.required' => 'El campo de búsqueda es obligatorio.',
         ]);
+
 
         // Busco el vehículo por VIN o por placa
         $vehicle = Vehicle::where('vin', $query)
