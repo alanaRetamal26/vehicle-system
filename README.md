@@ -12,7 +12,7 @@
 
 ### Backend (Laravel)
 Para poner en marcha el backend, sigue estos pasos:
-1. **Clona el Repositorio**: `git clone https://github.com/tu-usuario/vehicle-management-system.git`
+1. **Clona el Repositorio**: `git clone https://github.com/alanaRetamal26/vehicle-system.git`
 2. **Configura el Entorno**:
    - Copia el archivo `.env.example` a `.env`: `cp .env.example .env`
    - Edita el archivo `.env` para configurar la conexión a la base de datos:
@@ -73,7 +73,8 @@ Para el frontend, sigue estos pasos:
     "model": "Focus",
     "version": "ST",
     "plates": ["LMN456"],
-    "current_owner": "Alice Johnson"
+    "current_owner": "Alice Johnson",
+    "id": 19
   }
 #### POST /vehicle
 - **Respuesta Ejemplo**:
